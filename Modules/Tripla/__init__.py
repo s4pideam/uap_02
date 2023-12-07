@@ -1,0 +1,2 @@
+from .triplayacc import TriplaYacc
+

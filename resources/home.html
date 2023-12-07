@@ -1,0 +1,222 @@
+<html>
+  <head>
+    <style>
+      *{
+      background-color:#282a36;
+      color: #dddddd;
+      font: 10pt "Segoe UI";
+      }
+      .wikitable {
+      background-color: #f8f9fa;
+      margin: 1em 0;
+      border: 1px solid #a2a9b1;
+      border-collapse: collapse;
+      }
+      .mw-datatable {
+      background: #fff;
+      }
+      th, td {
+      padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+<p style="font-size:18pt; font-weight:700; color:#ff79c6;">Grammar</p>
+<pre>
+    	E -> let D in E
+		| ID
+		| ID ( A )
+		| E AOP E
+		| ( E )
+		| CONST
+		| ID = E
+		| E ; E
+		| if B then E else E
+		| while B do { E }
+	A -> E | A , E
+	D -> ID ( V ) { E }
+		| D ID ( V ) { E }
+	V -> ID | V , V
+	B -> (B)
+		| true | false
+		| B LOP B
+		| E RELOP E
+</pre>
+<pre>
+	ID : Bezeichner = [A-Za-z_] [A-Za-z0-9_] *
+	CONST: Positive, ganze Zahl = 0 | [1-9] [0-9] *
+	AOP: Operatoren (+, - , * , /)
+	RELOP: Vergleichsoperatoren (==, !=, <, >, <=, >=)
+	LOP: Logische Operatoren (||, &&, ==, !=)
+</pre>	
+    <p><span style="font-size:18pt; font-weight:700; color:#ff79c6;">UI-Framework</span></p>
+    <table>
+      <tr>
+        <td height="30" style="vertical-align: middle;">
+          <img src="resources/img/qt.svg" width="30" height="21" />
+        </td>
+        <td style="font-size: 14pt; font-weight: 700; color: #bd93f9; vertical-align: middle;">
+	  QT
+        </td>
+      </tr>
+    </table>
+    <p>Qt ist ein leistungsstarkes und plattformübergreifendes GUI-Framework, das in C++ entwickelt wurde. Es bietet Entwicklern die Möglichkeit, moderne und benutzerfreundliche grafische Benutzeroberflächen für ihre Anwendungen zu erstellen. Mit einer breiten Palette von vorgefertigten Widgets, einem flexiblen Layout-System und Unterstützung für High-DPI-Displays ermöglicht Qt die einfache Entwicklung von ansprechenden Anwendungen für verschiedene Betriebssysteme. Das Framework bietet zudem Funktionen für Ereignisbehandlung, Animationen, Multithreading und mehr. Eine besondere Stärke von Qt liegt in seiner Signal-Slot-Architektur, die eine effiziente Kommunikation zwischen verschiedenen Teilen einer Anwendung ermöglicht.</p>
+    <p style="font-size: 14pt; font-weight: 700; color: #bd93f9;">
+      QT - Designer
+    </p>
+    <p><img src="resources/img/qt-designer.png" width="532" height="288" /></p>
+    <p>
+      Qt Designer ist ein benutzerfreundliches GUI-Design-Tool, das eng mit dem Qt-Framework integriert ist. Es ermöglicht Entwicklern, grafische Benutzeroberflächen durch einfaches Drag-and-Drop von Widgets zu gestalten. Qt Designer speichert das Ergebnis dieser Gestaltung in UI-Dateien, die XML-basierte Beschreibungen der Benutzeroberfläche sind. Diese UI-Dateien können dann von Qt-Anwendungen dynamisch geladen werden, was die Möglichkeit bietet, das Aussehen der Anwendung zur Laufzeit zu ändern, ohne den Quellcode zu modifizieren.
+    </p>
+    <p>
+      Zusätzlich dazu ermöglicht Qt Designer auch die Verwendung von QSS (Qt Style Sheets), einer CSS-ähnlichen Sprache, um das Aussehen und das Layout der Benutzeroberfläche anzupassen. Mit QSS können Entwickler das Erscheinungsbild ihrer Anwendung einfach anpassen, indem sie Stile für verschiedene Widgets definieren.
+    </p>
+    <p style="font-size: 14pt; font-weight: 700; color: #bd93f9;">
+      PySide6
+    </p>
+    <p>
+      PySide6 ist eine offizielle Python-Bindung für das Qt-Framework, die eine nahtlose Integration von Qt in Python-Anwendungen ermöglicht. Diese Bibliothek ermöglicht es Entwicklern, leistungsstarke und plattformübergreifende Anwendungen zu erstellen, indem sie die Funktionen von Qt in Python nutzen. PySide6 unterstützt die neueste Version des Qt-Frameworks (Qt 6).
+    </p>
+    <p><span style="font-size:18pt; font-weight:700; color:#ff79c6;">Theming</span></p>
+    <table>
+      <tr>
+        <td style="vertical-align: top;">
+          <img src="resources/img/dracula.svg" width="30" height="30" />
+        </td>
+        <td style="font-size: 14pt; font-weight: 700; color: #bd93f9; vertical-align: middle;">
+          Dracula Color Palette
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tbody><tr>
+	  <th style="text-align:left;">Name
+	  </th>
+	  <th>Swatch
+	  </th>
+	  <th>Hex</th>
+	  <th>RGB</th>
+	  <th>HSL</th></tr>
+	<tr>
+	  <td>Background
+	  </td>
+	  <td style="background:#282a36">
+	  </td>
+	  <td><samp>#282a36</samp>
+	  </td>
+	  <td align="center">40 42 54
+	  </td>
+	  <td align="center">231° 15% 18%
+	</td></tr>
+	<tr>
+	  <td>Current Line
+	  </td>
+	  <td style="background:#44475a">
+	  </td>
+	  <td><samp>#44475a</samp>
+	  </td>
+	  <td align="center">68 71 90
+	  </td>
+	  <td align="center">232° 14% 31%
+	</td></tr>
+	<tr>
+	  <td>Foreground
+	  </td>
+	  <td style="background:#f8f8f2">
+	  </td>
+	  <td><samp>#f8f8f2</samp>
+	  </td>
+	  <td align="center">248 248 242
+	  </td>
+	  <td align="center">60° 30% 96%
+	</td></tr>
+	<tr>
+	  <td>Comment
+	  </td>
+	  <td style="background:#6272a4">
+	  </td>
+	  <td><samp>#6272a4</samp>
+	  </td>
+	  <td align="center">98 114 164
+	  </td>
+	  <td align="center">225° 27% 51%
+	</td></tr>
+	<tr>
+	  <td>Cyan
+	  </td>
+	  <td style="background:#8be9fd">
+	  </td>
+	  <td><samp>#8be9fd</samp>
+	  </td>
+	  <td align="center">139 233 253
+	  </td>
+	  <td align="center">191° 97% 77%
+	</td></tr>
+	<tr>
+	  <td>Green
+	  </td>
+	  <td style="background:#50fa7b">
+	  </td>
+	  <td><samp>#50fa7b</samp>
+	  </td>
+	  <td align="center">80 250 123
+	  </td>
+	  <td align="center">135° 94% 65%
+	</td></tr>
+	<tr>
+	  <td>Orange
+	  </td>
+	  <td style="background:#ffb86c">
+	  </td>
+	  <td><samp>#ffb86c</samp>
+	  </td>
+	  <td align="center">255 184 108
+	  </td>
+	  <td align="center">31° 100% 71%
+	</td></tr>
+	<tr>
+	  <td>Pink
+	  </td>
+	  <td style="background:#ff79c6">
+	  </td>
+	  <td><samp>#ff79c6</samp>
+	  </td>
+	  <td align="center">255 121 198
+	  </td>
+	  <td align="center">326° 100% 74%
+	</td></tr>
+	<tr>
+	  <td>Purple
+	  </td>
+	  <td style="background:#bd93f9">
+	  </td>
+	  <td><samp>#bd93f9</samp>
+	  </td>
+	  <td align="center">189 147 249
+	  </td>
+	  <td align="center">265° 89% 78%
+	</td></tr>
+	<tr>
+	  <td>Red
+	  </td>
+	  <td style="background:#ff5555">
+	  </td>
+	  <td><samp>#ff5555</samp>
+	  </td>
+	  <td align="center">255 85 85
+	  </td>
+	  <td align="center">0° 100% 67%
+	</td></tr>
+	<tr>
+	  <td>Yellow
+	  </td>
+	  <td style="background:#f1fa8c">
+	  </td>
+	  <td><samp>#f1fa8c</samp>
+	  </td>
+	  <td align="center">241 250 140
+	  </td>
+	  <td align="center">65° 92% 76%
+    </td></tr></tbody></table>
+  </body>
+</html>

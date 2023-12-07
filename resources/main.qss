@@ -1,0 +1,336 @@
+QWidget {
+    color: #f8f8f2;
+    font: 10pt "Segoe UI";
+}
+
+
+QPushButton {
+    border: 2px solid #343b48;
+    border-radius: 5px;	
+    background-color: #343b48;
+}
+QPushButton:hover {
+    background-color: #394150;
+    border: 2px solid #3d4656;
+}
+QPushButton:pressed {	
+    background-color: #232831;
+    border: 2px solid #2b323d;
+}
+
+
+#App {
+    background-color: #282a36;
+    border: 1px solid #2c313a;
+}
+
+#Control .QPushButton {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-radius: 5px;
+}
+
+#Control .QPushButton:hover {
+    background-color: #2c3139;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+#Control .QPushButton:pressed {
+    background-color: #171a1e;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+
+#ExamplesClose {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+}
+
+#ExamplesClose:hover {
+    background-color: #0063c3;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+#ExamplesClose:pressed {
+    background-color: #004fc3;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+
+#ExamplesHeader {
+    background-color: #007ac3;
+}
+
+
+
+#ExamplesListView{
+    background: #282a36;
+}
+
+
+#ExamplesTitle {
+    color: #fff;
+}
+
+#IconHeader {
+    font: 63 12pt "Segoe UI Semibold";
+}
+
+#IconSubtitle {
+    color: #bd93f9;
+    font: 8pt "Segoe UI";
+}
+
+#Tabbar QRadioButton::checked {
+    background-color: #282a36;
+    border-left: 3px solid #ff79c6;
+    padding-left: -3px;
+}
+
+#Tabbar QRadioButton:hover {
+    background-color: #171a1e;
+}
+
+#Tabbar QRadioButton:pressed {
+    background-color: #bd93f9;
+    color: #fff;
+}
+
+#Tabbar QRadioButton::indicator {
+    border: 0px solid #282a36;
+    height: 0px;
+    width: 0px;
+    padding: 5px;
+    background: none;
+}
+
+#Tabbar #Hide {
+    color: #3c4048;
+}
+
+#Tabbar .QPushButton {
+    background-color: transparent;
+    border: none;
+}
+
+
+#Title {
+    padding-left: 10px;
+    color: #fff;
+}
+
+#Titlebar,
+#Tabbar,
+#Logo {
+    background-color: #21252b;
+}
+
+#Logo,
+#Titlebar,
+#ExamplesHeader {
+    border-bottom: 3px solid #2c313a;
+}
+
+#WhatsNewContent, QScrollArea {
+    background-color: #282c34; 
+}
+
+
+QListView,
+QTextEdit,
+QPlainTextEdit{
+    background-color: rgb(27, 29, 35);
+    border-radius: 5px;
+    padding: 3px;
+    selection-color: rgb(255, 255, 255);
+    selection-background-color: rgb(64, 71, 88);
+}
+
+
+QListView QScrollBar:vertical,
+QTextEdit QScrollBar:vertical,
+QPlainTextEdit  QScrollBar:vertical {
+    width: 8px;
+}
+
+QListView QScrollBar:horizontal,
+QTextEdit QScrollBar:horizontal,
+QPlainTextEdit  QScrollBar:horizontal {
+    height: 8px;
+}
+
+QListView:hover,
+QTextEdit:hover,
+QPlainTextEdit:hover {
+    border: 2px solid rgb(64, 71, 88);
+}
+
+QListView:focus,
+QTextEdit:focus,
+QPlainTextEdit:focus {
+    border: 2px solid rgb(91, 101, 124);
+}
+
+
+
+
+
+
+
+QScrollBar:horizontal {
+    border: none;
+    background: rgb(52, 59, 72);
+    height: 8px;
+    margin: 0px 21px 0 21px;
+    border-radius: 0px;
+}
+QScrollBar::handle:horizontal {
+    background: rgb(189, 147, 249);
+    min-width: 25px;
+    border-radius: 4px
+}
+QScrollBar::add-line:horizontal {
+    border: none;
+    background: rgb(55, 63, 77);
+    width: 20px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal {
+    border: none;
+    background: rgb(55, 63, 77);
+    width: 20px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal
+{
+    background: none;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+{
+    background: none;
+}
+ QScrollBar:vertical {
+     border: none;
+     background: rgb(52, 59, 72);
+     width: 8px;
+     margin: 21px 0 21px 0;
+     border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+     background: rgb(189, 147, 249);
+     min-height: 25px;
+     border-radius: 4px
+ }
+ QScrollBar::add-line:vertical {
+     border: none;
+     background: rgb(55, 63, 77);
+     height: 20px;
+     border-bottom-left-radius: 4px;
+     border-bottom-right-radius: 4px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+     border: none;
+     background: rgb(55, 63, 77);
+     height: 20px;
+     border-top-left-radius: 4px;
+     border-top-right-radius: 4px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: none;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: none;
+ }
+
+
+#ExamplesListView{
+    border: none;
+}
+
+
+#Stack::item {
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    padding-left: 5px;
+}
+
+#SvgViewer QGraphicsView{
+    background-color: #282c34;
+    border-radius: 5px;
+    border: 2px solid rgb(91, 101, 124);
+}
+
+#AstSvgViewer QGraphicsView{
+    background-color: #282c34;
+    border-radius: 5px;
+    border: 2px solid rgb(91, 101, 124);
+}
+
+#CodeRun{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+#TreeSave,#AstTreeSave{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+#TreeZoomOut,#AstTreeZoomOut{
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 0px;
+}
+
+#TreeZoomReset,#AstTreeZoomReset{
+    width: 30px;
+    height: 30px;
+    border-radius: 0;
+}
+
+#TreeZoomIn,#AstTreeZoomIn{
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 15px;
+}
+
+
+#Footer{
+
+    padding-top: 15px;
+}
+
+#Console{
+    background-color:#000000;
+}
+
+#SvgViewer QGraphicsView,#AstSvgViewer QGraphicsView{
+    background-color:#282a36;
+}
+

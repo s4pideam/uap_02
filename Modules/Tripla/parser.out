@@ -1,0 +1,2035 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMMENT
+
+Grammar
+
+Rule 0     S' -> E
+Rule 1     E -> LET D IN E
+Rule 2     E -> ID
+Rule 3     E -> ID LPAR A RPAR
+Rule 4     E -> E ADD E
+Rule 5     E -> E SUB E
+Rule 6     E -> E MUL E
+Rule 7     E -> E DIV E
+Rule 8     E -> LPAR E RPAR
+Rule 9     E -> CONST
+Rule 10    E -> ID ASSIGN E
+Rule 11    E -> E SEMICOLON E
+Rule 12    E -> IF B THEN E ELSE E
+Rule 13    E -> WHILE B DO LBRA E RBRA
+Rule 14    A -> E
+Rule 15    A -> A COMMA E
+Rule 16    D -> ID LPAR V RPAR LBRA E RBRA
+Rule 17    D -> D ID LPAR V RPAR LBRA E RBRA
+Rule 18    V -> ID
+Rule 19    V -> V COMMA V
+Rule 20    B -> LPAR B RPAR
+Rule 21    B -> TRUE
+Rule 22    B -> FALSE
+Rule 23    B -> B OR B
+Rule 24    B -> B AND B
+Rule 25    B -> B NEQ B
+Rule 26    B -> B EQ B
+Rule 27    B -> E EQ E
+Rule 28    B -> E NEQ E
+Rule 29    B -> E LT E
+Rule 30    B -> E GT E
+Rule 31    B -> E LTE E
+Rule 32    B -> E GTE E
+
+Terminals, with rules where they appear
+
+ADD                  : 4
+AND                  : 24
+ASSIGN               : 10
+COMMA                : 15 19
+COMMENT              : 
+CONST                : 9
+DIV                  : 7
+DO                   : 13
+ELSE                 : 12
+EQ                   : 26 27
+FALSE                : 22
+GT                   : 30
+GTE                  : 32
+ID                   : 2 3 10 16 17 18
+IF                   : 12
+IN                   : 1
+LBRA                 : 13 16 17
+LET                  : 1
+LPAR                 : 3 8 16 17 20
+LT                   : 29
+LTE                  : 31
+MUL                  : 6
+NEQ                  : 25 28
+OR                   : 23
+RBRA                 : 13 16 17
+RPAR                 : 3 8 16 17 20
+SEMICOLON            : 11
+SUB                  : 5
+THEN                 : 12
+TRUE                 : 21
+WHILE                : 13
+error                : 
+
+Nonterminals, with rules where they appear
+
+A                    : 3 15
+B                    : 12 13 20 23 23 24 24 25 25 26 26
+D                    : 1 17
+E                    : 1 4 4 5 5 6 6 7 7 8 10 11 11 12 12 13 14 15 16 17 27 27 28 28 29 29 30 30 31 31 32 32 0
+V                    : 16 17 19 19
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 1
+
+state 1
+
+    (0) S' -> E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 2
+
+    (1) E -> LET . D IN E
+    (16) D -> . ID LPAR V RPAR LBRA E RBRA
+    (17) D -> . D ID LPAR V RPAR LBRA E RBRA
+
+    ID              shift and go to state 14
+
+    D                              shift and go to state 13
+
+state 3
+
+    (2) E -> ID .
+    (3) E -> ID . LPAR A RPAR
+    (10) E -> ID . ASSIGN E
+
+    ADD             reduce using rule 2 (E -> ID .)
+    SUB             reduce using rule 2 (E -> ID .)
+    MUL             reduce using rule 2 (E -> ID .)
+    DIV             reduce using rule 2 (E -> ID .)
+    SEMICOLON       reduce using rule 2 (E -> ID .)
+    $end            reduce using rule 2 (E -> ID .)
+    RPAR            reduce using rule 2 (E -> ID .)
+    EQ              reduce using rule 2 (E -> ID .)
+    NEQ             reduce using rule 2 (E -> ID .)
+    LT              reduce using rule 2 (E -> ID .)
+    GT              reduce using rule 2 (E -> ID .)
+    LTE             reduce using rule 2 (E -> ID .)
+    GTE             reduce using rule 2 (E -> ID .)
+    COMMA           reduce using rule 2 (E -> ID .)
+    ELSE            reduce using rule 2 (E -> ID .)
+    THEN            reduce using rule 2 (E -> ID .)
+    OR              reduce using rule 2 (E -> ID .)
+    AND             reduce using rule 2 (E -> ID .)
+    DO              reduce using rule 2 (E -> ID .)
+    RBRA            reduce using rule 2 (E -> ID .)
+    LPAR            shift and go to state 15
+    ASSIGN          shift and go to state 16
+
+
+state 4
+
+    (8) E -> LPAR . E RPAR
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 17
+
+state 5
+
+    (9) E -> CONST .
+
+    ADD             reduce using rule 9 (E -> CONST .)
+    SUB             reduce using rule 9 (E -> CONST .)
+    MUL             reduce using rule 9 (E -> CONST .)
+    DIV             reduce using rule 9 (E -> CONST .)
+    SEMICOLON       reduce using rule 9 (E -> CONST .)
+    $end            reduce using rule 9 (E -> CONST .)
+    RPAR            reduce using rule 9 (E -> CONST .)
+    EQ              reduce using rule 9 (E -> CONST .)
+    NEQ             reduce using rule 9 (E -> CONST .)
+    LT              reduce using rule 9 (E -> CONST .)
+    GT              reduce using rule 9 (E -> CONST .)
+    LTE             reduce using rule 9 (E -> CONST .)
+    GTE             reduce using rule 9 (E -> CONST .)
+    COMMA           reduce using rule 9 (E -> CONST .)
+    ELSE            reduce using rule 9 (E -> CONST .)
+    THEN            reduce using rule 9 (E -> CONST .)
+    OR              reduce using rule 9 (E -> CONST .)
+    AND             reduce using rule 9 (E -> CONST .)
+    DO              reduce using rule 9 (E -> CONST .)
+    RBRA            reduce using rule 9 (E -> CONST .)
+
+
+state 6
+
+    (12) E -> IF . B THEN E ELSE E
+    (20) B -> . LPAR B RPAR
+    (21) B -> . TRUE
+    (22) B -> . FALSE
+    (23) B -> . B OR B
+    (24) B -> . B AND B
+    (25) B -> . B NEQ B
+    (26) B -> . B EQ B
+    (27) B -> . E EQ E
+    (28) B -> . E NEQ E
+    (29) B -> . E LT E
+    (30) B -> . E GT E
+    (31) B -> . E LTE E
+    (32) B -> . E GTE E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LPAR            shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    B                              shift and go to state 18
+    E                              shift and go to state 19
+
+state 7
+
+    (13) E -> WHILE . B DO LBRA E RBRA
+    (20) B -> . LPAR B RPAR
+    (21) B -> . TRUE
+    (22) B -> . FALSE
+    (23) B -> . B OR B
+    (24) B -> . B AND B
+    (25) B -> . B NEQ B
+    (26) B -> . B EQ B
+    (27) B -> . E EQ E
+    (28) B -> . E NEQ E
+    (29) B -> . E LT E
+    (30) B -> . E GT E
+    (31) B -> . E LTE E
+    (32) B -> . E GTE E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LPAR            shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    B                              shift and go to state 23
+    E                              shift and go to state 19
+
+state 8
+
+    (4) E -> E ADD . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 24
+
+state 9
+
+    (5) E -> E SUB . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 25
+
+state 10
+
+    (6) E -> E MUL . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 26
+
+state 11
+
+    (7) E -> E DIV . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 27
+
+state 12
+
+    (11) E -> E SEMICOLON . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 28
+
+state 13
+
+    (1) E -> LET D . IN E
+    (17) D -> D . ID LPAR V RPAR LBRA E RBRA
+
+    IN              shift and go to state 29
+    ID              shift and go to state 30
+
+
+state 14
+
+    (16) D -> ID . LPAR V RPAR LBRA E RBRA
+
+    LPAR            shift and go to state 31
+
+
+state 15
+
+    (3) E -> ID LPAR . A RPAR
+    (14) A -> . E
+    (15) A -> . A COMMA E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    A                              shift and go to state 32
+    E                              shift and go to state 33
+
+state 16
+
+    (10) E -> ID ASSIGN . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 34
+
+state 17
+
+    (8) E -> LPAR E . RPAR
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    RPAR            shift and go to state 35
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 18
+
+    (12) E -> IF B . THEN E ELSE E
+    (23) B -> B . OR B
+    (24) B -> B . AND B
+    (25) B -> B . NEQ B
+    (26) B -> B . EQ B
+
+    THEN            shift and go to state 36
+    OR              shift and go to state 37
+    AND             shift and go to state 38
+    NEQ             shift and go to state 39
+    EQ              shift and go to state 40
+
+
+state 19
+
+    (27) B -> E . EQ E
+    (28) B -> E . NEQ E
+    (29) B -> E . LT E
+    (30) B -> E . GT E
+    (31) B -> E . LTE E
+    (32) B -> E . GTE E
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    EQ              shift and go to state 41
+    NEQ             shift and go to state 42
+    LT              shift and go to state 43
+    GT              shift and go to state 44
+    LTE             shift and go to state 45
+    GTE             shift and go to state 46
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 20
+
+    (20) B -> LPAR . B RPAR
+    (8) E -> LPAR . E RPAR
+    (20) B -> . LPAR B RPAR
+    (21) B -> . TRUE
+    (22) B -> . FALSE
+    (23) B -> . B OR B
+    (24) B -> . B AND B
+    (25) B -> . B NEQ B
+    (26) B -> . B EQ B
+    (27) B -> . E EQ E
+    (28) B -> . E NEQ E
+    (29) B -> . E LT E
+    (30) B -> . E GT E
+    (31) B -> . E LTE E
+    (32) B -> . E GTE E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LPAR            shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    B                              shift and go to state 47
+    E                              shift and go to state 48
+
+state 21
+
+    (21) B -> TRUE .
+
+    THEN            reduce using rule 21 (B -> TRUE .)
+    OR              reduce using rule 21 (B -> TRUE .)
+    AND             reduce using rule 21 (B -> TRUE .)
+    NEQ             reduce using rule 21 (B -> TRUE .)
+    EQ              reduce using rule 21 (B -> TRUE .)
+    DO              reduce using rule 21 (B -> TRUE .)
+    RPAR            reduce using rule 21 (B -> TRUE .)
+
+
+state 22
+
+    (22) B -> FALSE .
+
+    THEN            reduce using rule 22 (B -> FALSE .)
+    OR              reduce using rule 22 (B -> FALSE .)
+    AND             reduce using rule 22 (B -> FALSE .)
+    NEQ             reduce using rule 22 (B -> FALSE .)
+    EQ              reduce using rule 22 (B -> FALSE .)
+    DO              reduce using rule 22 (B -> FALSE .)
+    RPAR            reduce using rule 22 (B -> FALSE .)
+
+
+state 23
+
+    (13) E -> WHILE B . DO LBRA E RBRA
+    (23) B -> B . OR B
+    (24) B -> B . AND B
+    (25) B -> B . NEQ B
+    (26) B -> B . EQ B
+
+    DO              shift and go to state 49
+    OR              shift and go to state 37
+    AND             shift and go to state 38
+    NEQ             shift and go to state 39
+    EQ              shift and go to state 40
+
+
+state 24
+
+    (4) E -> E ADD E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    ADD             reduce using rule 4 (E -> E ADD E .)
+    SUB             reduce using rule 4 (E -> E ADD E .)
+    SEMICOLON       reduce using rule 4 (E -> E ADD E .)
+    $end            reduce using rule 4 (E -> E ADD E .)
+    RPAR            reduce using rule 4 (E -> E ADD E .)
+    EQ              reduce using rule 4 (E -> E ADD E .)
+    NEQ             reduce using rule 4 (E -> E ADD E .)
+    LT              reduce using rule 4 (E -> E ADD E .)
+    GT              reduce using rule 4 (E -> E ADD E .)
+    LTE             reduce using rule 4 (E -> E ADD E .)
+    GTE             reduce using rule 4 (E -> E ADD E .)
+    COMMA           reduce using rule 4 (E -> E ADD E .)
+    ELSE            reduce using rule 4 (E -> E ADD E .)
+    THEN            reduce using rule 4 (E -> E ADD E .)
+    OR              reduce using rule 4 (E -> E ADD E .)
+    AND             reduce using rule 4 (E -> E ADD E .)
+    DO              reduce using rule 4 (E -> E ADD E .)
+    RBRA            reduce using rule 4 (E -> E ADD E .)
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+
+  ! MUL             [ reduce using rule 4 (E -> E ADD E .) ]
+  ! DIV             [ reduce using rule 4 (E -> E ADD E .) ]
+  ! ADD             [ shift and go to state 8 ]
+  ! SUB             [ shift and go to state 9 ]
+  ! SEMICOLON       [ shift and go to state 12 ]
+
+
+state 25
+
+    (5) E -> E SUB E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    ADD             reduce using rule 5 (E -> E SUB E .)
+    SUB             reduce using rule 5 (E -> E SUB E .)
+    SEMICOLON       reduce using rule 5 (E -> E SUB E .)
+    $end            reduce using rule 5 (E -> E SUB E .)
+    RPAR            reduce using rule 5 (E -> E SUB E .)
+    EQ              reduce using rule 5 (E -> E SUB E .)
+    NEQ             reduce using rule 5 (E -> E SUB E .)
+    LT              reduce using rule 5 (E -> E SUB E .)
+    GT              reduce using rule 5 (E -> E SUB E .)
+    LTE             reduce using rule 5 (E -> E SUB E .)
+    GTE             reduce using rule 5 (E -> E SUB E .)
+    COMMA           reduce using rule 5 (E -> E SUB E .)
+    ELSE            reduce using rule 5 (E -> E SUB E .)
+    THEN            reduce using rule 5 (E -> E SUB E .)
+    OR              reduce using rule 5 (E -> E SUB E .)
+    AND             reduce using rule 5 (E -> E SUB E .)
+    DO              reduce using rule 5 (E -> E SUB E .)
+    RBRA            reduce using rule 5 (E -> E SUB E .)
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+
+  ! MUL             [ reduce using rule 5 (E -> E SUB E .) ]
+  ! DIV             [ reduce using rule 5 (E -> E SUB E .) ]
+  ! ADD             [ shift and go to state 8 ]
+  ! SUB             [ shift and go to state 9 ]
+  ! SEMICOLON       [ shift and go to state 12 ]
+
+
+state 26
+
+    (6) E -> E MUL E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    ADD             reduce using rule 6 (E -> E MUL E .)
+    SUB             reduce using rule 6 (E -> E MUL E .)
+    MUL             reduce using rule 6 (E -> E MUL E .)
+    DIV             reduce using rule 6 (E -> E MUL E .)
+    SEMICOLON       reduce using rule 6 (E -> E MUL E .)
+    $end            reduce using rule 6 (E -> E MUL E .)
+    RPAR            reduce using rule 6 (E -> E MUL E .)
+    EQ              reduce using rule 6 (E -> E MUL E .)
+    NEQ             reduce using rule 6 (E -> E MUL E .)
+    LT              reduce using rule 6 (E -> E MUL E .)
+    GT              reduce using rule 6 (E -> E MUL E .)
+    LTE             reduce using rule 6 (E -> E MUL E .)
+    GTE             reduce using rule 6 (E -> E MUL E .)
+    COMMA           reduce using rule 6 (E -> E MUL E .)
+    ELSE            reduce using rule 6 (E -> E MUL E .)
+    THEN            reduce using rule 6 (E -> E MUL E .)
+    OR              reduce using rule 6 (E -> E MUL E .)
+    AND             reduce using rule 6 (E -> E MUL E .)
+    DO              reduce using rule 6 (E -> E MUL E .)
+    RBRA            reduce using rule 6 (E -> E MUL E .)
+
+  ! ADD             [ shift and go to state 8 ]
+  ! SUB             [ shift and go to state 9 ]
+  ! MUL             [ shift and go to state 10 ]
+  ! DIV             [ shift and go to state 11 ]
+  ! SEMICOLON       [ shift and go to state 12 ]
+
+
+state 27
+
+    (7) E -> E DIV E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    ADD             reduce using rule 7 (E -> E DIV E .)
+    SUB             reduce using rule 7 (E -> E DIV E .)
+    MUL             reduce using rule 7 (E -> E DIV E .)
+    DIV             reduce using rule 7 (E -> E DIV E .)
+    SEMICOLON       reduce using rule 7 (E -> E DIV E .)
+    $end            reduce using rule 7 (E -> E DIV E .)
+    RPAR            reduce using rule 7 (E -> E DIV E .)
+    EQ              reduce using rule 7 (E -> E DIV E .)
+    NEQ             reduce using rule 7 (E -> E DIV E .)
+    LT              reduce using rule 7 (E -> E DIV E .)
+    GT              reduce using rule 7 (E -> E DIV E .)
+    LTE             reduce using rule 7 (E -> E DIV E .)
+    GTE             reduce using rule 7 (E -> E DIV E .)
+    COMMA           reduce using rule 7 (E -> E DIV E .)
+    ELSE            reduce using rule 7 (E -> E DIV E .)
+    THEN            reduce using rule 7 (E -> E DIV E .)
+    OR              reduce using rule 7 (E -> E DIV E .)
+    AND             reduce using rule 7 (E -> E DIV E .)
+    DO              reduce using rule 7 (E -> E DIV E .)
+    RBRA            reduce using rule 7 (E -> E DIV E .)
+
+  ! ADD             [ shift and go to state 8 ]
+  ! SUB             [ shift and go to state 9 ]
+  ! MUL             [ shift and go to state 10 ]
+  ! DIV             [ shift and go to state 11 ]
+  ! SEMICOLON       [ shift and go to state 12 ]
+
+
+state 28
+
+    (11) E -> E SEMICOLON E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    SEMICOLON       reduce using rule 11 (E -> E SEMICOLON E .)
+    $end            reduce using rule 11 (E -> E SEMICOLON E .)
+    RPAR            reduce using rule 11 (E -> E SEMICOLON E .)
+    EQ              reduce using rule 11 (E -> E SEMICOLON E .)
+    NEQ             reduce using rule 11 (E -> E SEMICOLON E .)
+    LT              reduce using rule 11 (E -> E SEMICOLON E .)
+    GT              reduce using rule 11 (E -> E SEMICOLON E .)
+    LTE             reduce using rule 11 (E -> E SEMICOLON E .)
+    GTE             reduce using rule 11 (E -> E SEMICOLON E .)
+    COMMA           reduce using rule 11 (E -> E SEMICOLON E .)
+    ELSE            reduce using rule 11 (E -> E SEMICOLON E .)
+    THEN            reduce using rule 11 (E -> E SEMICOLON E .)
+    OR              reduce using rule 11 (E -> E SEMICOLON E .)
+    AND             reduce using rule 11 (E -> E SEMICOLON E .)
+    DO              reduce using rule 11 (E -> E SEMICOLON E .)
+    RBRA            reduce using rule 11 (E -> E SEMICOLON E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+
+  ! ADD             [ reduce using rule 11 (E -> E SEMICOLON E .) ]
+  ! SUB             [ reduce using rule 11 (E -> E SEMICOLON E .) ]
+  ! MUL             [ reduce using rule 11 (E -> E SEMICOLON E .) ]
+  ! DIV             [ reduce using rule 11 (E -> E SEMICOLON E .) ]
+  ! SEMICOLON       [ shift and go to state 12 ]
+
+
+state 29
+
+    (1) E -> LET D IN . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 50
+
+state 30
+
+    (17) D -> D ID . LPAR V RPAR LBRA E RBRA
+
+    LPAR            shift and go to state 51
+
+
+state 31
+
+    (16) D -> ID LPAR . V RPAR LBRA E RBRA
+    (18) V -> . ID
+    (19) V -> . V COMMA V
+
+    ID              shift and go to state 52
+
+    V                              shift and go to state 53
+
+state 32
+
+    (3) E -> ID LPAR A . RPAR
+    (15) A -> A . COMMA E
+
+    RPAR            shift and go to state 54
+    COMMA           shift and go to state 55
+
+
+state 33
+
+    (14) A -> E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    RPAR            reduce using rule 14 (A -> E .)
+    COMMA           reduce using rule 14 (A -> E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 34
+
+    (10) E -> ID ASSIGN E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    SEMICOLON       reduce using rule 10 (E -> ID ASSIGN E .)
+    $end            reduce using rule 10 (E -> ID ASSIGN E .)
+    RPAR            reduce using rule 10 (E -> ID ASSIGN E .)
+    EQ              reduce using rule 10 (E -> ID ASSIGN E .)
+    NEQ             reduce using rule 10 (E -> ID ASSIGN E .)
+    LT              reduce using rule 10 (E -> ID ASSIGN E .)
+    GT              reduce using rule 10 (E -> ID ASSIGN E .)
+    LTE             reduce using rule 10 (E -> ID ASSIGN E .)
+    GTE             reduce using rule 10 (E -> ID ASSIGN E .)
+    COMMA           reduce using rule 10 (E -> ID ASSIGN E .)
+    ELSE            reduce using rule 10 (E -> ID ASSIGN E .)
+    THEN            reduce using rule 10 (E -> ID ASSIGN E .)
+    OR              reduce using rule 10 (E -> ID ASSIGN E .)
+    AND             reduce using rule 10 (E -> ID ASSIGN E .)
+    DO              reduce using rule 10 (E -> ID ASSIGN E .)
+    RBRA            reduce using rule 10 (E -> ID ASSIGN E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+
+  ! ADD             [ reduce using rule 10 (E -> ID ASSIGN E .) ]
+  ! SUB             [ reduce using rule 10 (E -> ID ASSIGN E .) ]
+  ! MUL             [ reduce using rule 10 (E -> ID ASSIGN E .) ]
+  ! DIV             [ reduce using rule 10 (E -> ID ASSIGN E .) ]
+  ! SEMICOLON       [ shift and go to state 12 ]
+
+
+state 35
+
+    (8) E -> LPAR E RPAR .
+
+    ADD             reduce using rule 8 (E -> LPAR E RPAR .)
+    SUB             reduce using rule 8 (E -> LPAR E RPAR .)
+    MUL             reduce using rule 8 (E -> LPAR E RPAR .)
+    DIV             reduce using rule 8 (E -> LPAR E RPAR .)
+    SEMICOLON       reduce using rule 8 (E -> LPAR E RPAR .)
+    $end            reduce using rule 8 (E -> LPAR E RPAR .)
+    RPAR            reduce using rule 8 (E -> LPAR E RPAR .)
+    EQ              reduce using rule 8 (E -> LPAR E RPAR .)
+    NEQ             reduce using rule 8 (E -> LPAR E RPAR .)
+    LT              reduce using rule 8 (E -> LPAR E RPAR .)
+    GT              reduce using rule 8 (E -> LPAR E RPAR .)
+    LTE             reduce using rule 8 (E -> LPAR E RPAR .)
+    GTE             reduce using rule 8 (E -> LPAR E RPAR .)
+    COMMA           reduce using rule 8 (E -> LPAR E RPAR .)
+    ELSE            reduce using rule 8 (E -> LPAR E RPAR .)
+    THEN            reduce using rule 8 (E -> LPAR E RPAR .)
+    OR              reduce using rule 8 (E -> LPAR E RPAR .)
+    AND             reduce using rule 8 (E -> LPAR E RPAR .)
+    DO              reduce using rule 8 (E -> LPAR E RPAR .)
+    RBRA            reduce using rule 8 (E -> LPAR E RPAR .)
+
+
+state 36
+
+    (12) E -> IF B THEN . E ELSE E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 56
+
+state 37
+
+    (23) B -> B OR . B
+    (20) B -> . LPAR B RPAR
+    (21) B -> . TRUE
+    (22) B -> . FALSE
+    (23) B -> . B OR B
+    (24) B -> . B AND B
+    (25) B -> . B NEQ B
+    (26) B -> . B EQ B
+    (27) B -> . E EQ E
+    (28) B -> . E NEQ E
+    (29) B -> . E LT E
+    (30) B -> . E GT E
+    (31) B -> . E LTE E
+    (32) B -> . E GTE E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LPAR            shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    B                              shift and go to state 57
+    E                              shift and go to state 19
+
+state 38
+
+    (24) B -> B AND . B
+    (20) B -> . LPAR B RPAR
+    (21) B -> . TRUE
+    (22) B -> . FALSE
+    (23) B -> . B OR B
+    (24) B -> . B AND B
+    (25) B -> . B NEQ B
+    (26) B -> . B EQ B
+    (27) B -> . E EQ E
+    (28) B -> . E NEQ E
+    (29) B -> . E LT E
+    (30) B -> . E GT E
+    (31) B -> . E LTE E
+    (32) B -> . E GTE E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LPAR            shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    B                              shift and go to state 58
+    E                              shift and go to state 19
+
+state 39
+
+    (25) B -> B NEQ . B
+    (20) B -> . LPAR B RPAR
+    (21) B -> . TRUE
+    (22) B -> . FALSE
+    (23) B -> . B OR B
+    (24) B -> . B AND B
+    (25) B -> . B NEQ B
+    (26) B -> . B EQ B
+    (27) B -> . E EQ E
+    (28) B -> . E NEQ E
+    (29) B -> . E LT E
+    (30) B -> . E GT E
+    (31) B -> . E LTE E
+    (32) B -> . E GTE E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LPAR            shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    B                              shift and go to state 59
+    E                              shift and go to state 19
+
+state 40
+
+    (26) B -> B EQ . B
+    (20) B -> . LPAR B RPAR
+    (21) B -> . TRUE
+    (22) B -> . FALSE
+    (23) B -> . B OR B
+    (24) B -> . B AND B
+    (25) B -> . B NEQ B
+    (26) B -> . B EQ B
+    (27) B -> . E EQ E
+    (28) B -> . E NEQ E
+    (29) B -> . E LT E
+    (30) B -> . E GT E
+    (31) B -> . E LTE E
+    (32) B -> . E GTE E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LPAR            shift and go to state 20
+    TRUE            shift and go to state 21
+    FALSE           shift and go to state 22
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    B                              shift and go to state 60
+    E                              shift and go to state 19
+
+state 41
+
+    (27) B -> E EQ . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 61
+
+state 42
+
+    (28) B -> E NEQ . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 62
+
+state 43
+
+    (29) B -> E LT . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 63
+
+state 44
+
+    (30) B -> E GT . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 64
+
+state 45
+
+    (31) B -> E LTE . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 65
+
+state 46
+
+    (32) B -> E GTE . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 66
+
+state 47
+
+    (20) B -> LPAR B . RPAR
+    (23) B -> B . OR B
+    (24) B -> B . AND B
+    (25) B -> B . NEQ B
+    (26) B -> B . EQ B
+
+    RPAR            shift and go to state 67
+    OR              shift and go to state 37
+    AND             shift and go to state 38
+    NEQ             shift and go to state 39
+    EQ              shift and go to state 40
+
+
+state 48
+
+    (8) E -> LPAR E . RPAR
+    (27) B -> E . EQ E
+    (28) B -> E . NEQ E
+    (29) B -> E . LT E
+    (30) B -> E . GT E
+    (31) B -> E . LTE E
+    (32) B -> E . GTE E
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    RPAR            shift and go to state 35
+    EQ              shift and go to state 41
+    NEQ             shift and go to state 42
+    LT              shift and go to state 43
+    GT              shift and go to state 44
+    LTE             shift and go to state 45
+    GTE             shift and go to state 46
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 49
+
+    (13) E -> WHILE B DO . LBRA E RBRA
+
+    LBRA            shift and go to state 68
+
+
+state 50
+
+    (1) E -> LET D IN E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    SEMICOLON       reduce using rule 1 (E -> LET D IN E .)
+    $end            reduce using rule 1 (E -> LET D IN E .)
+    RPAR            reduce using rule 1 (E -> LET D IN E .)
+    EQ              reduce using rule 1 (E -> LET D IN E .)
+    NEQ             reduce using rule 1 (E -> LET D IN E .)
+    LT              reduce using rule 1 (E -> LET D IN E .)
+    GT              reduce using rule 1 (E -> LET D IN E .)
+    LTE             reduce using rule 1 (E -> LET D IN E .)
+    GTE             reduce using rule 1 (E -> LET D IN E .)
+    COMMA           reduce using rule 1 (E -> LET D IN E .)
+    ELSE            reduce using rule 1 (E -> LET D IN E .)
+    THEN            reduce using rule 1 (E -> LET D IN E .)
+    OR              reduce using rule 1 (E -> LET D IN E .)
+    AND             reduce using rule 1 (E -> LET D IN E .)
+    DO              reduce using rule 1 (E -> LET D IN E .)
+    RBRA            reduce using rule 1 (E -> LET D IN E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+
+  ! ADD             [ reduce using rule 1 (E -> LET D IN E .) ]
+  ! SUB             [ reduce using rule 1 (E -> LET D IN E .) ]
+  ! MUL             [ reduce using rule 1 (E -> LET D IN E .) ]
+  ! DIV             [ reduce using rule 1 (E -> LET D IN E .) ]
+  ! SEMICOLON       [ shift and go to state 12 ]
+
+
+state 51
+
+    (17) D -> D ID LPAR . V RPAR LBRA E RBRA
+    (18) V -> . ID
+    (19) V -> . V COMMA V
+
+    ID              shift and go to state 52
+
+    V                              shift and go to state 69
+
+state 52
+
+    (18) V -> ID .
+
+    RPAR            reduce using rule 18 (V -> ID .)
+    COMMA           reduce using rule 18 (V -> ID .)
+
+
+state 53
+
+    (16) D -> ID LPAR V . RPAR LBRA E RBRA
+    (19) V -> V . COMMA V
+
+    RPAR            shift and go to state 70
+    COMMA           shift and go to state 71
+
+
+state 54
+
+    (3) E -> ID LPAR A RPAR .
+
+    ADD             reduce using rule 3 (E -> ID LPAR A RPAR .)
+    SUB             reduce using rule 3 (E -> ID LPAR A RPAR .)
+    MUL             reduce using rule 3 (E -> ID LPAR A RPAR .)
+    DIV             reduce using rule 3 (E -> ID LPAR A RPAR .)
+    SEMICOLON       reduce using rule 3 (E -> ID LPAR A RPAR .)
+    $end            reduce using rule 3 (E -> ID LPAR A RPAR .)
+    RPAR            reduce using rule 3 (E -> ID LPAR A RPAR .)
+    EQ              reduce using rule 3 (E -> ID LPAR A RPAR .)
+    NEQ             reduce using rule 3 (E -> ID LPAR A RPAR .)
+    LT              reduce using rule 3 (E -> ID LPAR A RPAR .)
+    GT              reduce using rule 3 (E -> ID LPAR A RPAR .)
+    LTE             reduce using rule 3 (E -> ID LPAR A RPAR .)
+    GTE             reduce using rule 3 (E -> ID LPAR A RPAR .)
+    COMMA           reduce using rule 3 (E -> ID LPAR A RPAR .)
+    ELSE            reduce using rule 3 (E -> ID LPAR A RPAR .)
+    THEN            reduce using rule 3 (E -> ID LPAR A RPAR .)
+    OR              reduce using rule 3 (E -> ID LPAR A RPAR .)
+    AND             reduce using rule 3 (E -> ID LPAR A RPAR .)
+    DO              reduce using rule 3 (E -> ID LPAR A RPAR .)
+    RBRA            reduce using rule 3 (E -> ID LPAR A RPAR .)
+
+
+state 55
+
+    (15) A -> A COMMA . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 72
+
+state 56
+
+    (12) E -> IF B THEN E . ELSE E
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    ELSE            shift and go to state 73
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 57
+
+    (23) B -> B OR B .
+    (23) B -> B . OR B
+    (24) B -> B . AND B
+    (25) B -> B . NEQ B
+    (26) B -> B . EQ B
+
+    THEN            reduce using rule 23 (B -> B OR B .)
+    OR              reduce using rule 23 (B -> B OR B .)
+    DO              reduce using rule 23 (B -> B OR B .)
+    RPAR            reduce using rule 23 (B -> B OR B .)
+    AND             shift and go to state 38
+    NEQ             shift and go to state 39
+    EQ              shift and go to state 40
+
+  ! AND             [ reduce using rule 23 (B -> B OR B .) ]
+  ! NEQ             [ reduce using rule 23 (B -> B OR B .) ]
+  ! EQ              [ reduce using rule 23 (B -> B OR B .) ]
+  ! OR              [ shift and go to state 37 ]
+
+
+state 58
+
+    (24) B -> B AND B .
+    (23) B -> B . OR B
+    (24) B -> B . AND B
+    (25) B -> B . NEQ B
+    (26) B -> B . EQ B
+
+    THEN            reduce using rule 24 (B -> B AND B .)
+    OR              reduce using rule 24 (B -> B AND B .)
+    AND             reduce using rule 24 (B -> B AND B .)
+    DO              reduce using rule 24 (B -> B AND B .)
+    RPAR            reduce using rule 24 (B -> B AND B .)
+    NEQ             shift and go to state 39
+    EQ              shift and go to state 40
+
+  ! NEQ             [ reduce using rule 24 (B -> B AND B .) ]
+  ! EQ              [ reduce using rule 24 (B -> B AND B .) ]
+  ! OR              [ shift and go to state 37 ]
+  ! AND             [ shift and go to state 38 ]
+
+
+state 59
+
+    (25) B -> B NEQ B .
+    (23) B -> B . OR B
+    (24) B -> B . AND B
+    (25) B -> B . NEQ B
+    (26) B -> B . EQ B
+
+    THEN            reduce using rule 25 (B -> B NEQ B .)
+    OR              reduce using rule 25 (B -> B NEQ B .)
+    AND             reduce using rule 25 (B -> B NEQ B .)
+    NEQ             reduce using rule 25 (B -> B NEQ B .)
+    EQ              reduce using rule 25 (B -> B NEQ B .)
+    DO              reduce using rule 25 (B -> B NEQ B .)
+    RPAR            reduce using rule 25 (B -> B NEQ B .)
+
+  ! OR              [ shift and go to state 37 ]
+  ! AND             [ shift and go to state 38 ]
+  ! NEQ             [ shift and go to state 39 ]
+  ! EQ              [ shift and go to state 40 ]
+
+
+state 60
+
+    (26) B -> B EQ B .
+    (23) B -> B . OR B
+    (24) B -> B . AND B
+    (25) B -> B . NEQ B
+    (26) B -> B . EQ B
+
+    THEN            reduce using rule 26 (B -> B EQ B .)
+    OR              reduce using rule 26 (B -> B EQ B .)
+    AND             reduce using rule 26 (B -> B EQ B .)
+    NEQ             reduce using rule 26 (B -> B EQ B .)
+    EQ              reduce using rule 26 (B -> B EQ B .)
+    DO              reduce using rule 26 (B -> B EQ B .)
+    RPAR            reduce using rule 26 (B -> B EQ B .)
+
+  ! OR              [ shift and go to state 37 ]
+  ! AND             [ shift and go to state 38 ]
+  ! NEQ             [ shift and go to state 39 ]
+  ! EQ              [ shift and go to state 40 ]
+
+
+state 61
+
+    (27) B -> E EQ E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    THEN            reduce using rule 27 (B -> E EQ E .)
+    OR              reduce using rule 27 (B -> E EQ E .)
+    AND             reduce using rule 27 (B -> E EQ E .)
+    NEQ             reduce using rule 27 (B -> E EQ E .)
+    EQ              reduce using rule 27 (B -> E EQ E .)
+    DO              reduce using rule 27 (B -> E EQ E .)
+    RPAR            reduce using rule 27 (B -> E EQ E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 62
+
+    (28) B -> E NEQ E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    THEN            reduce using rule 28 (B -> E NEQ E .)
+    OR              reduce using rule 28 (B -> E NEQ E .)
+    AND             reduce using rule 28 (B -> E NEQ E .)
+    NEQ             reduce using rule 28 (B -> E NEQ E .)
+    EQ              reduce using rule 28 (B -> E NEQ E .)
+    DO              reduce using rule 28 (B -> E NEQ E .)
+    RPAR            reduce using rule 28 (B -> E NEQ E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 63
+
+    (29) B -> E LT E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    THEN            reduce using rule 29 (B -> E LT E .)
+    OR              reduce using rule 29 (B -> E LT E .)
+    AND             reduce using rule 29 (B -> E LT E .)
+    NEQ             reduce using rule 29 (B -> E LT E .)
+    EQ              reduce using rule 29 (B -> E LT E .)
+    DO              reduce using rule 29 (B -> E LT E .)
+    RPAR            reduce using rule 29 (B -> E LT E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 64
+
+    (30) B -> E GT E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    THEN            reduce using rule 30 (B -> E GT E .)
+    OR              reduce using rule 30 (B -> E GT E .)
+    AND             reduce using rule 30 (B -> E GT E .)
+    NEQ             reduce using rule 30 (B -> E GT E .)
+    EQ              reduce using rule 30 (B -> E GT E .)
+    DO              reduce using rule 30 (B -> E GT E .)
+    RPAR            reduce using rule 30 (B -> E GT E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 65
+
+    (31) B -> E LTE E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    THEN            reduce using rule 31 (B -> E LTE E .)
+    OR              reduce using rule 31 (B -> E LTE E .)
+    AND             reduce using rule 31 (B -> E LTE E .)
+    NEQ             reduce using rule 31 (B -> E LTE E .)
+    EQ              reduce using rule 31 (B -> E LTE E .)
+    DO              reduce using rule 31 (B -> E LTE E .)
+    RPAR            reduce using rule 31 (B -> E LTE E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 66
+
+    (32) B -> E GTE E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    THEN            reduce using rule 32 (B -> E GTE E .)
+    OR              reduce using rule 32 (B -> E GTE E .)
+    AND             reduce using rule 32 (B -> E GTE E .)
+    NEQ             reduce using rule 32 (B -> E GTE E .)
+    EQ              reduce using rule 32 (B -> E GTE E .)
+    DO              reduce using rule 32 (B -> E GTE E .)
+    RPAR            reduce using rule 32 (B -> E GTE E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 67
+
+    (20) B -> LPAR B RPAR .
+
+    THEN            reduce using rule 20 (B -> LPAR B RPAR .)
+    OR              reduce using rule 20 (B -> LPAR B RPAR .)
+    AND             reduce using rule 20 (B -> LPAR B RPAR .)
+    NEQ             reduce using rule 20 (B -> LPAR B RPAR .)
+    EQ              reduce using rule 20 (B -> LPAR B RPAR .)
+    DO              reduce using rule 20 (B -> LPAR B RPAR .)
+    RPAR            reduce using rule 20 (B -> LPAR B RPAR .)
+
+
+state 68
+
+    (13) E -> WHILE B DO LBRA . E RBRA
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 74
+
+state 69
+
+    (17) D -> D ID LPAR V . RPAR LBRA E RBRA
+    (19) V -> V . COMMA V
+
+    RPAR            shift and go to state 75
+    COMMA           shift and go to state 71
+
+
+state 70
+
+    (16) D -> ID LPAR V RPAR . LBRA E RBRA
+
+    LBRA            shift and go to state 76
+
+
+state 71
+
+    (19) V -> V COMMA . V
+    (18) V -> . ID
+    (19) V -> . V COMMA V
+
+    ID              shift and go to state 52
+
+    V                              shift and go to state 77
+
+state 72
+
+    (15) A -> A COMMA E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    RPAR            reduce using rule 15 (A -> A COMMA E .)
+    COMMA           reduce using rule 15 (A -> A COMMA E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 73
+
+    (12) E -> IF B THEN E ELSE . E
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 78
+
+state 74
+
+    (13) E -> WHILE B DO LBRA E . RBRA
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    RBRA            shift and go to state 79
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 75
+
+    (17) D -> D ID LPAR V RPAR . LBRA E RBRA
+
+    LBRA            shift and go to state 80
+
+
+state 76
+
+    (16) D -> ID LPAR V RPAR LBRA . E RBRA
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 81
+
+state 77
+
+    (19) V -> V COMMA V .
+    (19) V -> V . COMMA V
+
+    RPAR            reduce using rule 19 (V -> V COMMA V .)
+    COMMA           reduce using rule 19 (V -> V COMMA V .)
+
+  ! COMMA           [ shift and go to state 71 ]
+
+
+state 78
+
+    (12) E -> IF B THEN E ELSE E .
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    SEMICOLON       reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    $end            reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    RPAR            reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    EQ              reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    NEQ             reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    LT              reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    GT              reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    LTE             reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    GTE             reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    COMMA           reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    ELSE            reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    THEN            reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    OR              reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    AND             reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    DO              reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    RBRA            reduce using rule 12 (E -> IF B THEN E ELSE E .)
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+
+  ! ADD             [ reduce using rule 12 (E -> IF B THEN E ELSE E .) ]
+  ! SUB             [ reduce using rule 12 (E -> IF B THEN E ELSE E .) ]
+  ! MUL             [ reduce using rule 12 (E -> IF B THEN E ELSE E .) ]
+  ! DIV             [ reduce using rule 12 (E -> IF B THEN E ELSE E .) ]
+  ! SEMICOLON       [ shift and go to state 12 ]
+
+
+state 79
+
+    (13) E -> WHILE B DO LBRA E RBRA .
+
+    ADD             reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    SUB             reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    MUL             reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    DIV             reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    SEMICOLON       reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    $end            reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    RPAR            reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    EQ              reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    NEQ             reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    LT              reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    GT              reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    LTE             reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    GTE             reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    COMMA           reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    ELSE            reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    THEN            reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    OR              reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    AND             reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    DO              reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+    RBRA            reduce using rule 13 (E -> WHILE B DO LBRA E RBRA .)
+
+
+state 80
+
+    (17) D -> D ID LPAR V RPAR LBRA . E RBRA
+    (1) E -> . LET D IN E
+    (2) E -> . ID
+    (3) E -> . ID LPAR A RPAR
+    (4) E -> . E ADD E
+    (5) E -> . E SUB E
+    (6) E -> . E MUL E
+    (7) E -> . E DIV E
+    (8) E -> . LPAR E RPAR
+    (9) E -> . CONST
+    (10) E -> . ID ASSIGN E
+    (11) E -> . E SEMICOLON E
+    (12) E -> . IF B THEN E ELSE E
+    (13) E -> . WHILE B DO LBRA E RBRA
+
+    LET             shift and go to state 2
+    ID              shift and go to state 3
+    LPAR            shift and go to state 4
+    CONST           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+
+    E                              shift and go to state 82
+
+state 81
+
+    (16) D -> ID LPAR V RPAR LBRA E . RBRA
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    RBRA            shift and go to state 83
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 82
+
+    (17) D -> D ID LPAR V RPAR LBRA E . RBRA
+    (4) E -> E . ADD E
+    (5) E -> E . SUB E
+    (6) E -> E . MUL E
+    (7) E -> E . DIV E
+    (11) E -> E . SEMICOLON E
+
+    RBRA            shift and go to state 84
+    ADD             shift and go to state 8
+    SUB             shift and go to state 9
+    MUL             shift and go to state 10
+    DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
+
+
+state 83
+
+    (16) D -> ID LPAR V RPAR LBRA E RBRA .
+
+    IN              reduce using rule 16 (D -> ID LPAR V RPAR LBRA E RBRA .)
+    ID              reduce using rule 16 (D -> ID LPAR V RPAR LBRA E RBRA .)
+
+
+state 84
+
+    (17) D -> D ID LPAR V RPAR LBRA E RBRA .
+
+    IN              reduce using rule 17 (D -> D ID LPAR V RPAR LBRA E RBRA .)
+    ID              reduce using rule 17 (D -> D ID LPAR V RPAR LBRA E RBRA .)
+
