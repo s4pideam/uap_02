@@ -1375,7 +1375,6 @@ state 50
     (7) E -> E . DIV E
     (11) E -> E . SEMICOLON E
 
-    SEMICOLON       reduce using rule 1 (E -> LET D IN E .)
     $end            reduce using rule 1 (E -> LET D IN E .)
     RPAR            reduce using rule 1 (E -> LET D IN E .)
     EQ              reduce using rule 1 (E -> LET D IN E .)
@@ -1395,12 +1394,13 @@ state 50
     SUB             shift and go to state 9
     MUL             shift and go to state 10
     DIV             shift and go to state 11
+    SEMICOLON       shift and go to state 12
 
   ! ADD             [ reduce using rule 1 (E -> LET D IN E .) ]
   ! SUB             [ reduce using rule 1 (E -> LET D IN E .) ]
   ! MUL             [ reduce using rule 1 (E -> LET D IN E .) ]
   ! DIV             [ reduce using rule 1 (E -> LET D IN E .) ]
-  ! SEMICOLON       [ shift and go to state 12 ]
+  ! SEMICOLON       [ reduce using rule 1 (E -> LET D IN E .) ]
 
 
 state 51

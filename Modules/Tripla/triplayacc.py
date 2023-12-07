@@ -39,9 +39,9 @@ class TriplaYacc:
         self.lexer_instance = TriplaLexer()
         self.tokens = self.lexer_instance.tokens
         self.precedence = (
-            ('nonassoc', 'RPAR', 'LET'),
+            ('nonassoc', 'RPAR', 'IN'),
             ('left', 'SEMICOLON', 'COMMA', 'ID'),
-            ('nonassoc', 'ASSIGN', 'ELSE', 'WHILE', 'IF', 'DO', 'IN'),
+            ('nonassoc', 'ASSIGN', 'ELSE', 'WHILE', 'IF', 'DO', 'LET'),
             ('left', 'OR'),
             ('left', 'AND'),
             ('nonassoc', 'LT', 'GT', 'EQ', 'NEQ', 'LTE', 'GTE'),
