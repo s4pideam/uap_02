@@ -1,0 +1,73 @@
+// Parse-Tree
+digraph "Parse-Tree" {
+	bgcolor="#282a36"
+	node [color=white fontcolor=white]
+	edge [color=white fontcolor=white]
+	node_58 [label=LET fontcolor="#ff79c6" shape=doubleoctagon]
+	node_54 [label="DECL: ggT" fontcolor="#ffb86c"]
+	node_27 [label="VAR: a" fontcolor="#50fa7b" shape=house]
+	node_54 -> node_27
+	node_28 [label="VAR: b" fontcolor="#50fa7b" shape=house]
+	node_54 -> node_28
+	node_53 [label=SEQ shape=egg]
+	node_51 [label=if fontcolor="#2196f3" shape=diamond]
+	node_31 [label="OP: ==" fontcolor="#ff5555" shape=rect]
+	node_29 [label="VAR: a" fontcolor="#50fa7b" shape=house]
+	node_31 -> node_29
+	node_30 [label="VAR: b" fontcolor="#50fa7b" shape=house]
+	node_31 -> node_30
+	node_51t [label=then fontcolor="#2196f3"]
+	node_51e [label=else fontcolor="#2196f3"]
+	node_51 -> node_31
+	node_51 -> node_51t
+	node_51 -> node_51e
+	node_32 [label="VAR: a" fontcolor="#50fa7b" shape=house]
+	node_51t -> node_32
+	node_50 [label=WHILE fontcolor="#f1fa8c"]
+	node_35 [label="OP: !=" fontcolor="#ff5555" shape=rect]
+	node_33 [label="VAR: a" fontcolor="#50fa7b" shape=house]
+	node_35 -> node_33
+	node_34 [label="VAR: b" fontcolor="#50fa7b" shape=house]
+	node_35 -> node_34
+	node_50 -> node_35
+	node_49 [label=if fontcolor="#2196f3" shape=diamond]
+	node_38 [label="OP: >" fontcolor="#ff5555" shape=rect]
+	node_36 [label="VAR: a" fontcolor="#50fa7b" shape=house]
+	node_38 -> node_36
+	node_37 [label="VAR: b" fontcolor="#50fa7b" shape=house]
+	node_38 -> node_37
+	node_49t [label=then fontcolor="#2196f3"]
+	node_49e [label=else fontcolor="#2196f3"]
+	node_49 -> node_38
+	node_49 -> node_49t
+	node_49 -> node_49e
+	node_43 [label="ASSIGN: a"]
+	node_41 [label="OP: -" fontcolor="#ff5555" shape=rect]
+	node_39 [label="VAR: a" fontcolor="#50fa7b" shape=house]
+	node_41 -> node_39
+	node_40 [label="VAR: b" fontcolor="#50fa7b" shape=house]
+	node_41 -> node_40
+	node_43 -> node_41
+	node_49t -> node_43
+	node_48 [label="ASSIGN: b"]
+	node_46 [label="OP: -" fontcolor="#ff5555" shape=rect]
+	node_44 [label="VAR: b" fontcolor="#50fa7b" shape=house]
+	node_46 -> node_44
+	node_45 [label="VAR: a" fontcolor="#50fa7b" shape=house]
+	node_46 -> node_45
+	node_48 -> node_46
+	node_49e -> node_48
+	node_50 -> node_49
+	node_51e -> node_50
+	node_53 -> node_51
+	node_52 [label="VAR: a" fontcolor="#50fa7b" shape=house]
+	node_53 -> node_52
+	node_54 -> node_53
+	node_58 -> node_54
+	node_57 [label="CALL: ggT" shape=cds]
+	node_55 [label="CONST: 3528" fontcolor="#bd93f9"]
+	node_57 -> node_55
+	node_56 [label="CONST: 3780" fontcolor="#bd93f9"]
+	node_57 -> node_56
+	node_58 -> node_57
+}
